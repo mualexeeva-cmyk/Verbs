@@ -931,278 +931,81 @@ rx="14" ry="10" fill="#1d4ed8"/></svg>`
         function getPlanetPositions() { return window.innerWidth <= 768 ? planetPositionsMobile : 
 planetPositionsDesktop; } 
         const planetPositions = getPlanetPositions(); 
-        const questionDatabase = [
-    {
-        keyword: "Present Perfect",
-        question: "Choose the correct form: She ___ her homework already.",
-        correct: "has finished",
-        wrong1: "have finished",
-        wrong2: "finished",
-        wrong3: "finishes",
-        explanation: "With 'she' we use 'has'. Present Perfect is formed with have/has + past participle."
-    },
-    {
-        keyword: "Past Participle",
-        question: "What is the past participle of 'write'?",
-        correct: "written",
-        wrong1: "wrote",
-        wrong2: "writed",
-        wrong3: "writing",
-        explanation: "'Write' is an irregular verb. Its past participle is 'written', not 'wrote' (which is Past Simple)."
-    },
-    {
-        keyword: "Time Expressions",
-        question: "Which word is commonly used with Present Perfect?",
-        correct: "already",
-        wrong1: "yesterday",
-        wrong2: "last week",
-        wrong3: "in 2020",
-        explanation: "'Already' is a typical Present Perfect marker. 'Yesterday', 'last week', and 'in 2020' are used with Past Simple."
-    },
-    {
-        keyword: "Present Perfect",
-        question: "Complete: They ___ to Paris three times.",
-        correct: "have been",
-        wrong1: "went",
-        wrong2: "have gone",
-        wrong3: "were",
-        explanation: "'Have been' means visited and returned. 'Have gone' means they are still there now."
-    },
-    {
-        keyword: "Auxiliary Verb",
-        question: "Which auxiliary verb is used with 'I' in Present Perfect?",
-        correct: "have",
-        wrong1: "has",
-        wrong2: "had",
-        wrong3: "do",
-        explanation: "With pronouns I, you, we, they we use 'have'. With he, she, it we use 'has'."
-    },
-    {
-        keyword: "Negative Form",
-        question: "Make negative: He has seen this film. → He ___ this film.",
-        correct: "hasn't seen",
-        wrong1: "haven't seen",
-        wrong2: "didn't see",
-        wrong3: "doesn't see",
-        explanation: "In negative Present Perfect we add 'not' after has/have: hasn't or haven't + past participle."
-    },
-    {
-        keyword: "Question Form",
-        question: "Form a question: ___ you ever eaten sushi?",
-        correct: "Have",
-        wrong1: "Has",
-        wrong2: "Did",
-        wrong3: "Do",
-        explanation: "Questions in Present Perfect start with Have/Has + subject + past participle."
-    },
-    {
-        keyword: "Time Expressions",
-        question: "Which expression is NOT used with Present Perfect?",
-        correct: "ago",
-        wrong1: "just",
-        wrong2: "yet",
-        wrong3: "ever",
-        explanation: "'Ago' is used with Past Simple (e.g., two days ago). 'Just', 'yet', 'ever' are Present Perfect markers."
-    },
-    {
-        keyword: "Past Participle",
-        question: "What is the past participle of 'go'?",
-        correct: "gone",
-        wrong1: "went",
-        wrong2: "goed",
-        wrong3: "going",
-        explanation: "'Go' is irregular: go - went - gone. 'Went' is Past Simple, 'gone' is past participle."
-    },
-    {
-        keyword: "Present Perfect",
-        question: "Choose the correct sentence:",
-        correct: "I have lived here since 2015.",
-        wrong1: "I have lived here in 2015.",
-        wrong2: "I lived here since 2015.",
-        wrong3: "I have live here since 2015.",
-        explanation: "'Since' with a specific year requires Present Perfect. The verb must be in past participle form."
-    },
-    {
-        keyword: "For vs Since",
-        question: "We use 'for' with...",
-        correct: "a period of time",
-        wrong1: "a point in time",
-        wrong2: "specific dates",
-        wrong3: "exact moments",
-        explanation: "'For' is used with durations (for two years, for a long time). 'Since' is used with starting points."
-    },
-    {
-        keyword: "For vs Since",
-        question: "Complete: She has worked here ___ March.",
-        correct: "since",
-        wrong1: "for",
-        wrong2: "from",
-        wrong3: "during",
-        explanation: "'March' is a point in time, so we use 'since'. We would say 'for three months'."
-    },
-    {
-        keyword: "Time Expressions",
-        question: "Where do we place 'just' in Present Perfect?",
-        correct: "between have and participle",
-        wrong1: "at the end",
-        wrong2: "at the beginning",
-        wrong3: "before have",
-        explanation: "'Just' goes between the auxiliary verb and the past participle: I have just finished."
-    },
-    {
-        keyword: "Present Perfect",
-        question: "Complete: ___ you finished your project yet?",
-        correct: "Have",
-        wrong1: "Has",
-        wrong2: "Did",
-        wrong3: "Are",
-        explanation: "'Yet' is used in questions and negatives with Present Perfect. Subject 'you' requires 'have'."
-    },
-    {
-        keyword: "Past Participle",
-        question: "What is the past participle of 'buy'?",
-        correct: "bought",
-        wrong1: "buyed",
-        wrong2: "buied",
-        wrong3: "buying",
-        explanation: "'Buy' is irregular: buy - bought - bought. There is no such form as 'buyed'."
-    },
-    {
-        keyword: "Present Perfect",
-        question: "Choose the correct meaning: 'He has lost his keys.'",
-        correct: "He doesn't have them now.",
-        wrong1: "He lost them yesterday.",
-        wrong2: "He found them.",
-        wrong3: "He will lose them.",
-        explanation: "Present Perfect shows a result in the present. If he has lost them, he still doesn't have them."
-    },
-    {
-        keyword: "Ever/Never",
-        question: "'Ever' is used in...",
-        correct: "questions",
-        wrong1: "positive sentences",
-        wrong2: "negative sentences",
-        wrong3: "commands",
-        explanation: "'Ever' means 'at any time' and is typically used in questions. 'Never' is used in positive statements with negative meaning."
-    },
-    {
-        keyword: "Ever/Never",
-        question: "Complete: I have ___ been to Japan.",
-        correct: "never",
-        wrong1: "ever",
-        wrong2: "yet",
-        wrong3: "already",
-        explanation: "'Never' means 'not at any time'. 'Ever' is used in questions, not in positive statements like this."
-    },
-    {
-        keyword: "Present Perfect",
-        question: "Which sentence is correct?",
-        correct: "She has just arrived.",
-        wrong1: "She just has arrived.",
-        wrong2: "She has arrived just.",
-        wrong3: "Just she has arrived.",
-        explanation: "'Just' is placed between the auxiliary verb 'has' and the past participle 'arrived'."
-    },
-    {
-        keyword: "Past Participle",
-        question: "What is the past participle of 'see'?",
-        correct: "seen",
-        wrong1: "saw",
-        wrong2: "seed",
-        wrong3: "seeing",
-        explanation: "'See' is irregular: see - saw - seen. 'Saw' is Past Simple, 'seen' is the past participle."
-    },
-    {
-        keyword: "Present Perfect",
-        question: "Complete: We ___ each other for ten years.",
-        correct: "have known",
-        wrong1: "knew",
-        wrong2: "have knew",
-        wrong3: "know",
-        explanation: "With 'for ten years' we use Present Perfect. 'Know' is irregular: know - knew - known."
-    },
-    {
-        keyword: "Yet",
-        question: "'Yet' is typically used in...",
-        correct: "negatives and questions",
-        wrong1: "positive sentences",
-        wrong2: "commands only",
-        wrong3: "exclamations",
-        explanation: "'Yet' means 'up to now' and appears in negative sentences and questions, usually at the end."
-    },
-    {
-        keyword: "Present Perfect",
-        question: "Choose: My parents ___ married for 25 years.",
-        correct: "have been",
-        wrong1: "are",
-        wrong2: "were",
-        wrong3: "been",
-        explanation: "Duration 'for 25 years' requires Present Perfect. 'Have been' is the correct form."
-    },
-    {
-        keyword: "Past Participle",
-        question: "What is the past participle of 'eat'?",
-        correct: "eaten",
-        wrong1: "ate",
-        wrong2: "eated",
-        wrong3: "eating",
-        explanation: "'Eat' is irregular: eat - ate - eaten. 'Ate' is Past Simple, not the past participle."
-    },
-    {
-        keyword: "Present Perfect vs Past Simple",
-        question: "Which tense should we use with 'last year'?",
-        correct: "Past Simple",
-        wrong1: "Present Perfect",
-        wrong2: "Present Continuous",
-        wrong3: "Future Simple",
-        explanation: "'Last year' is a finished time period, so we use Past Simple, not Present Perfect."
-    },
-    {
-        keyword: "Present Perfect",
-        question: "Complete: How long ___ you studied English?",
-        correct: "have",
-        wrong1: "has",
-        wrong2: "did",
-        wrong3: "do",
-        explanation: "'How long' asks about duration, requiring Present Perfect. Subject 'you' needs 'have'."
-    },
-    {
-        keyword: "Already",
-        question: "'Already' expresses that something happened...",
-        correct: "sooner than expected",
-        wrong1: "later than expected",
-        wrong2: "never",
-        wrong3: "in the future",
-        explanation: "'Already' means something has happened before now or earlier than expected."
-    },
-    {
-        keyword: "Present Perfect",
-        question: "Choose the correct sentence:",
-        correct: "Have you ever tried bungee jumping?",
-        wrong1: "Did you ever try bungee jumping?",
-        wrong2: "Do you ever try bungee jumping?",
-        wrong3: "Are you ever trying bungee jumping?",
-        explanation: "'Ever' with life experiences uses Present Perfect: Have you ever + past participle?"
-    },
-    {
-        keyword: "Past Participle",
-        question: "What is the past participle of 'break'?",
-        correct: "broken",
-        wrong1: "broke",
-        wrong2: "breaked",
-        wrong3: "breaking",
-        explanation: "'Break' is irregular: break - broke - broken. 'Broke' is Past Simple."
-    },
-    {
-        keyword: "Present Perfect",
-        question: "Complete: I ___ my wallet. Can you help me find it?",
-        correct: "have lost",
-        wrong1: "lost",
-        wrong2: "lose",
-        wrong3: "am losing",
-        explanation: "The result is important now (wallet is still missing), so we use Present Perfect."
-    }
-];
+        const questionDatabase = [ 
+            {  
+                keyword: "Столица Франции",  
+                question: "Какой город является столицей Франции?",  
+                correct: "Париж",  
+                wrong1: "Лион",  
+                wrong2: "Марсель",  
+                wrong3: "Ницца", 
+                explanation: "Париж — столица и крупнейший город Франции."  
+            }, 
+            {  
+                keyword: "Математика",  
+                question: "Чему равен корень из 144?",  
+                correct: "12",  
+                wrong1: "14",  
+                wrong2: "11",  
+                wrong3: "13", 
+                explanation: "12 × 12 = 144."  
+            }, 
+                       {  
+                keyword: "Орфография",  
+                question: "Какое из слов написано правильно?",  
+                correct: "стеклянный",  
+                wrong1: "оловяный",  
+                wrong2: "ветренный",  
+                wrong3: "песчанныйй", 
+                explanation: "'Стеклянный' — исключение, пишется с НН. Остальные варианты 
+содержат ошибки."  
+            }, 
+            {  
+                keyword: "Биология",  
+                question: "Какая органелла отвечает за выработку энергии в клетке?",  
+                correct: "Митохондрия",  
+                wrong1: "Рибосома",  
+                wrong2: "Лизосома",  
+                wrong3: "Ядро", 
+                explanation: "Митохондрии называют 'энергетическими станциями' клетки."  
+            }, 
+            {  
+                keyword: "История",  
+                question: "В каком году началась Великая Отечественная война?",  
+                correct: "1941",  
+                wrong1: "1939",  
+                wrong2: "1945",  
+                wrong3: "1942", 
+                explanation: "Война началась 22 июня 1941 года."  
+            }, 
+            {  
+                keyword: "Английский язык",  
+                question: "Выберите правильный перевод: 'Я никогда не был в Лондоне'",  
+                correct: "I have never been to London",  
+                wrong1: "I never was in London",  
+                wrong2: "I have never went to London",  
+                wrong3: "I was never in London", 
+                explanation: "Используется Present Perfect с наречием never."  
+            }, 
+            {  
+                keyword: "География",  
+                question: "Самый большой океан на Земле?",  
+                correct: "Тихий",  
+                wrong1: "Атлантический",  
+                wrong2: "Индийский",  
+                wrong3: "Северный Ледовитый", 
+                explanation: "Тихий океан занимает около 46% водной поверхности Земли."  
+            }, 
+            {  
+                keyword: "Физика",  
+                question: "В каких единицах измеряется сила тока?",  
+                correct: "Амперы",  
+                wrong1: "Вольты",  
+                wrong2: "Джоули",  
+                wrong3: "Ватты", 
+                explanation: "Сила тока измеряется в Амперах (А)."  
+            } 
+        ]; 
  
         let studentName = '', selectedCharacter = null, currentQuestions = [], currentIndex = 0, score = 
 0; 
